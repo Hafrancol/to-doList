@@ -1,0 +1,16 @@
+<div class="container-add-task">
+	<form (ngSubmit)="mostrar()">
+		<input
+		class="input-add-task"
+		 type="text" 
+		 name="addTask" 
+		 id=""
+		 placeholder="Add the task ..."
+		 [(ngModel)]="taskData.content"
+		 >
+
+		<button (click)="addtask()" class="submit-task" type="submit"> Submit</button>
+	</form>
+</div>
+
+

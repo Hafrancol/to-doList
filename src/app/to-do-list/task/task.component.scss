@@ -1,0 +1,16 @@
+.task-container{
+	display: flex;
+	justify-content: space-between;
+	height: 30px;
+	padding: 0 10px 0 10px;
+	align-items: center;
+	color:rgb(56, 56, 56);
+}
+
+.task-completed{
+	text-decoration: line-through
+}
+
+.container .task-container:nth-child(2n){
+	background-color: rgb(189, 185, 185);
+}

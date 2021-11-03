@@ -1,0 +1,7 @@
+<section class="container">
+	<div class="task-container" *ngFor="let task of tasks; index as i" >
+		<div>{{i+1}}</div>
+		<div (click)="toogleCompleted(i,task.completed)" class="{{task.completed===true ? 'task-completed' : ''}}">{{task.content}}</div>
+		<button (click)="delete(i)" class="delete">Delete</button>
+	</div>
+</section>
