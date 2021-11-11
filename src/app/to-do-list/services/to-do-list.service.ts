@@ -23,7 +23,13 @@ export class ToDoListService {
 			completed:false,
 		}
 
-	]
+	];
+
+	constructor() { 
+
+		this.taskList = JSON.parse(localStorage.getItem('tasks')!) || this.taskList
+	}
+
 
 	get tasks():Task[]{
 		return [...this.taskList];
@@ -32,13 +38,15 @@ export class ToDoListService {
 	addTask(task:Task){
 		console.log('heyy')
 		this.taskList.push(task);
+		localStorage.setItem('tasks',JSON.stringify(this.taskList));
 	}
 
 	deleteTask(index: number){
 		this.taskList = this.taskList.filter((v,i)=>{
-
+		
 			return (index !== i) 
 		});
+		localStorage.setItem('tasks',JSON.stringify(this.taskList));
 	}
 
 	toogleCompleted(index:number, completed:boolean){
@@ -53,5 +61,5 @@ export class ToDoListService {
 
 
 
-  constructor() { }
+ 
 }

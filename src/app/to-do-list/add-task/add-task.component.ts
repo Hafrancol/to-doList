@@ -16,9 +16,7 @@ export class AddTaskComponent implements OnInit {
 
   constructor(private task:ToDoListService) { }
 
-		mostrar(){
-			console.log(this.taskData.content)
-		}
+		
 
 		addtask(){
 			if(this.taskData.content) this.task.addTask(this.taskData);

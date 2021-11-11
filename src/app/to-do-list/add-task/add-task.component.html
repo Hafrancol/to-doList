@@ -1,5 +1,5 @@
 <div class="container-add-task">
-	<form (ngSubmit)="mostrar()">
+	<form (ngSubmit)="addtask()">
 		<input
 		class="input-add-task"
 		 type="text" 
@@ -9,7 +9,7 @@
 		 [(ngModel)]="taskData.content"
 		 >
 
-		<button (click)="addtask()" class="submit-task" type="submit"> Submit</button>
+		<button  class="submit-task" type="submit"> Submit</button>
 	</form>
 </div>
 
