@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit,AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Task } from '../interfaces/to-do-list.interface';
 @Injectable({
   providedIn: 'root'
@@ -8,11 +8,11 @@ export class ToDoListService {
 	private taskList:Task[] = [
 		{
 			content: "Tare1",
-			completed:false,
+			completed:true,
 		},
 		{
 			content: "Tare2",
-			completed:false,
+			completed:true,
 		},
 		{
 			content: "Tare3",
@@ -26,32 +26,26 @@ export class ToDoListService {
 	];
 
 	constructor() { 
-
-		this.taskList = JSON.parse(localStorage.getItem('tasks')!) || this.taskList
+		this.taskList = JSON.parse(localStorage.getItem('tasks') || '') || [...this.taskList]; // Inicializar la lista con lo que tenga el localStorage si no tiene entonces por default tendria la lista que esta en listtask
 	}
-
 
 	get tasks():Task[]{
 		return [...this.taskList];
 	}
 
 	addTask(task:Task){
-		console.log('heyy')
 		this.taskList.push(task);
 		localStorage.setItem('tasks',JSON.stringify(this.taskList));
 	}
 
 	deleteTask(index: number){
-		this.taskList = this.taskList.filter((v,i)=>{
-		
-			return (index !== i) 
-		});
+		this.taskList.splice(index,1);
 		localStorage.setItem('tasks',JSON.stringify(this.taskList));
 	}
 
 	toogleCompleted(index:number, completed:boolean){
-		this.taskList[index].completed = completed;
-		console.log(this.taskList[index].completed)
+		this.taskList[index].completed = !completed;
+		localStorage.setItem('tasks',JSON.stringify(this.taskList));
 	}
 
 

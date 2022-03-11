@@ -21,7 +21,7 @@ export class TaskComponent implements OnInit {
 	}
 
 	toogleCompleted(index:number, completed:boolean){
-		this.task.toogleCompleted(index,!completed)
+		this.task.toogleCompleted(index,completed)
 	}
 
 
